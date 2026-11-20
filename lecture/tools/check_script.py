@@ -198,6 +198,13 @@ def main(argv):
     for n, ln in prose:
         if ln.strip() == "**Output**":
             pass
+    for lang, body, s, e in blocks:
+        if lang == "mermaid":
+            src = "\n".join(body)
+            nodes = set(re.findall(r"\b(\w+)\[", src))
+            styled = set(re.findall(r"^\s*style (\w+) [^\n]*color:#(?:fff|ffffff)\b", src, re.M | re.I))
+            if nodes - styled:
+                fail(f"line {s}: Mermaid nodes {sorted(nodes - styled)} need a style line with color:#ffffff (white text)")
     if n_code == 0:
         warn("no code blocks (fine for a no-code session)")
     for n, ln in prose:

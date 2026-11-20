@@ -90,7 +90,7 @@ Follow `lecture/template.md` exactly:
 2. Scenario (varied layout) and its Instructor Note.
 3. Problem Statement with one purple question and a poll Instructor Note.
 4. What We Will Use, once and short.
-5. How: Walking Through …, with a Mermaid flow of Topic 1 to 4 and the Closing.
+5. How: Walking Through …, with a Mermaid flow of Topic 1 to 4 and the Closing. Copy the template's `style` lines: dark fills with `color:#ffffff` so node text is white.
 6. Topic 1 to 4: purple bridge question, Example, one or more Extending it, one Quiz. No Why/What/How headings.
 7. Closing: Outcome & Summary (answer the Problem Statement, Outcome table, "Therefore,", reveal the poll, Summary table with one row per LO and Practical value).
 8. Announcements only when `announcements` is Yes, using `announcement_text` or the default note.

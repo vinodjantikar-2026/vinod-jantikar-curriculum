@@ -13,7 +13,7 @@
 > - **Instructor Note:** 1–2 lines, red heading `<font color="red">**🎯 Instructor Note**</font>`. For the expected answer to a prediction, a poll answer or a warning.
 > - **Code:** 10 lines or fewer, run before use, output pasted exactly under **Output**. Ask **Predict before running: What will happen?** first. Explain it under `Code Explanation`, one bullet per line or group of lines. Use `Logic Explanation` for reasoning without code.
 > - **Maths:** every formula, symbol and computed value in LaTeX (`$…$`, `$$…$$`, `\boxed{}` for the key formula).
-> - **Visuals:** real charts as PNG files in `images/` (drawn from the same numbers as the code, with alt text), embedded with `<p align="center"><img src="images/…png" alt="…" width="900"></p>`; Mermaid for flows; tables for definitions and results.
+> - **Visuals:** real charts as PNG files in `images/` (drawn from the same numbers as the code, with alt text), embedded with `<p align="center"><img src="images/…png" alt="…" width="900"></p>`; Mermaid for flows (every node styled with a dark fill and `color:#ffffff` so the text is white, never the default grey); tables for definitions and results.
 > - **Chat prompts:** write "Give learners 30 seconds to respond in chat."
 > - **Facts and language:** every number, definition and output verified. Famous Indian company as the setting, as framing only; all data is invented for the scenario. Plain words in the Problem Statement; no forward references; 🎯 is the only emoji.
 > - **Announcements:** keep the section only when the input says Yes.
@@ -77,11 +77,11 @@ flowchart LR
     B --> C["Topic 3<br>{{title}}"]
     C --> D["Topic 4<br>{{title}}"]
     D --> E["Closing<br>{{decision}}"]
-    style A fill:#dbeafe,stroke:#2563eb
-    style B fill:#dcfce7,stroke:#16a34a
-    style C fill:#fef3c7,stroke:#d97706
-    style D fill:#ede9fe,stroke:#7c3aed
-    style E fill:#fee2e2,stroke:#dc2626
+    style A fill:#2563eb,stroke:#1e3a8a,color:#ffffff
+    style B fill:#16a34a,stroke:#14532d,color:#ffffff
+    style C fill:#b45309,stroke:#78350f,color:#ffffff
+    style D fill:#7c3aed,stroke:#4c1d95,color:#ffffff
+    style E fill:#dc2626,stroke:#7f1d1d,color:#ffffff
 ```
 
 ---

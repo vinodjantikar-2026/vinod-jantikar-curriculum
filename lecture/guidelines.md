@@ -13,7 +13,7 @@ A lecture script is the mentor's single document for a 120-minute session. It re
 - **Scenario:** a famous Indian company as framing only. The layout varies per script. Instructor Note: the data is invented, no claim about the company.
 - **Problem Statement:** a short story of a mistake with its consequence, one purple question, a poll Instructor Note.
 - **What We Will Use:** once, short. SQL or tool topics: one intro line and a toolkit table. Maths topics: a terms table and key formulas.
-- **How: Walking Through …:** a Mermaid flow of Topic 1 to 4 and the Closing.
+- **How: Walking Through …:** a Mermaid flow of Topic 1 to 4 and the Closing. Every node has a `style` line with a dark fill and `color:#ffffff` (white text), copied from the template.
 - **Topic 1 to 4:** a purple bridge question, then Example, one or more Extending it, and one Quiz. No Why/What/How headings.
 - **Closing: Outcome & Summary:** answer the Problem Statement using each topic once, Outcome table, "Therefore,", reveal the poll, Summary table (one row per LO plus Practical value).
 

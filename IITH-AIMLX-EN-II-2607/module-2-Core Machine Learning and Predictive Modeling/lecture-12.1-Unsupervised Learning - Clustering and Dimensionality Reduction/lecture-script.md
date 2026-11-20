@@ -15,7 +15,7 @@ The lecture runs as four topics. Each topic ends with a quiz.
 | — | Closing: Outcome & Summary | | 10 |
 | | **Total** | | **120** |
 
-> <font color="red">**🎯 Instructor Note**</font> Pace: keep Topic 1 brisk (learners met supervised vs unsupervised in an earlier session); spend the most time on fitting K-Means (Topic 2) and reading PCA output (Topic 4).
+> <font color="red">**🎯 Instructor Note**</font> Pace: keep Topic 1 quick (learners have already met supervised vs unsupervised); spend the most time on K-Means (Topic 2) and PCA (Topic 4).
 
 ---
 
@@ -64,11 +64,11 @@ flowchart LR
     B --> C["Topic 3<br>Plot and name groups"]
     C --> D["Topic 4<br>PCA: 8 columns to 2"]
     D --> E["Closing<br>One offer per group"]
-    style A fill:#dbeafe,stroke:#2563eb
-    style B fill:#dcfce7,stroke:#16a34a
-    style C fill:#fef3c7,stroke:#d97706
-    style D fill:#ede9fe,stroke:#7c3aed
-    style E fill:#fee2e2,stroke:#dc2626
+    style A fill:#2563eb,stroke:#1e3a8a,color:#ffffff
+    style B fill:#16a34a,stroke:#14532d,color:#ffffff
+    style C fill:#b45309,stroke:#78350f,color:#ffffff
+    style D fill:#7c3aed,stroke:#4c1d95,color:#ffffff
+    style E fill:#dc2626,stroke:#7f1d1d,color:#ffffff
 ```
 
 ---
@@ -77,7 +77,7 @@ flowchart LR
 
 > <font color='purple'>**Every model you have trained so far learned from a column holding the right answer. What can a model learn when that column does not exist?**</font>
 
-In an earlier session you split datasets into input features and a target label, and you saw that learning *without* labels is called unsupervised learning. Since then, every model (linear regression, logistic regression, decision trees, random forests) learned from a target, and last session's confusion matrix only worked because we knew the true answer for every row. Today that answer column is gone.
+In an earlier session you split a dataset into input features and a target label. You also saw that learning *without* labels is called unsupervised learning. Since then, every model you trained (linear regression, logistic regression, decision trees, random forests) learned from a target column. Last session's confusion matrix worked only because we knew the true answer for every row. Today there is no answer column.
 
 ### <font color='green'>Example: Look at the customer table</font>
 
@@ -116,7 +116,7 @@ app_opens_per_week        3    23     1
 - **Line 3** 140 customers, 9 columns: one ID and 8 behaviour columns.
 - **Line 4** `.T` flips the first 3 rows on their side so all 9 columns fit on screen.
 
-> <font color='green'>**Result**</font> There is no target column. Nothing tells us that customer C001 is a "regular" or a "lapsed" customer, so there is nothing to `fit` against and nothing to score.
+> <font color='green'>**Result**</font> There is no target column. Nothing tells us that customer C001 is a "regular" or a "lapsed" customer, so there is no answer to learn from and nothing to score against.
 
 <p align="center"><img src="images/01_no_labels.png" alt="Scatter plot of 140 grey points, orders per month on the x-axis against late-night order percentage on the y-axis, with loose clumps visible but no colours or labels" width="900"></p>
 
@@ -125,15 +125,15 @@ app_opens_per_week        3    23     1
 | | Supervised learning | Unsupervised learning |
 |:--|:--|:--|
 | What each row has | Features **and** a label | Features only |
-| What the model does | Learns to copy the label | Looks for structure on its own |
+| What the model does | Learns to copy the label | Looks for patterns on its own |
 | How we check it | Compare predictions with true labels (MAE, accuracy, F1) | No answer key; we judge whether the groups make sense |
 | Example | Will this customer default? | Which customers behave alike? |
 
-Unsupervised learning is useful because most real data has no labels. Nobody has tagged 140 customers by type, and paying people to do it would be slow and would bake in their guesses. **Clustering** is the most common kind of unsupervised learning: it puts rows into groups so that rows in the same group are alike and rows in different groups are not.
+Unsupervised learning is useful because most real data has no labels. Nobody has tagged these 140 customers by type. Tagging them by hand would be slow, and the guesses could be wrong. **Clustering** is the most common kind of unsupervised learning. It puts rows into groups so that rows in the same group are alike and rows in different groups are not.
 
 ### <font color='green'>Extending it: Are the columns on comparable scales?</font>
 
-> <font color='purple'>**"Alike" will mean "close together". Is a difference of 10 the same size in every column?**</font>
+> <font color='purple'>**"Alike" will mean "close together". Does a difference of 10 mean the same thing in every column?**</font>
 
 > <font color="red">**🎯 Instructor Note**</font> Ask first: "Which column has the biggest numbers?" Expected: `avg_order_value`, in rupees, ranging into the thousands.
 
@@ -165,11 +165,11 @@ app_opens_per_week       0.0    38.0    9.6
 #### <font color='#c2410c'>Code Explanation</font>
 
 - **Line 2** Drop the ID: `C001` says nothing about behaviour, so it must not affect the groups.
-- **Line 3** Spread of each column. `avg_order_value` has a standard deviation in the hundreds; `cuisines_tried` has one of about 3.
+- **Line 3** Smallest value, largest value and spread (standard deviation) of each column. `avg_order_value` spreads by hundreds of rupees; `cuisines_tried` spreads by about 3.
 - **Line 4** `StandardScaler`, from the preprocessing session, turns each column into $z = \dfrac{x - \text{mean}}{\text{std}}$.
 - **Lines 5–6** After scaling, every column has mean 0 and standard deviation 1.
 
-> <font color='green'>**Result**</font> Before scaling, ₹100 of order value would count 100 times more than 1 extra cuisine tried. After scaling, every column has the same say. We keep `X_scaled` for the rest of the lecture.
+> <font color='green'>**Result**</font> Before scaling, ₹100 of order value would count 100 times more than 1 extra cuisine tried. After scaling, every column counts equally. We keep `X_scaled` for the rest of the lecture.
 
 ### <font color='purple'>Quiz 1</font>
 
@@ -184,7 +184,7 @@ app_opens_per_week       0.0    38.0    9.6
 **Correct Answer:** B
 
 **Explanation:**
-- **A)** Wrong: past order values act as a known numeric target, so this is supervised regression.
+- **A)** Wrong: the order value is a known number to predict, so this is supervised regression.
 - **B)** Correct: there is no label column; the model must find the groups from features alone.
 - **C)** Wrong: the "cancelled" column is a label, so this is supervised classification.
 - **D)** Wrong: a confusion matrix needs true labels, which is exactly what unsupervised data lacks.
@@ -201,16 +201,16 @@ app_opens_per_week       0.0    38.0    9.6
 
 K-Means works like this:
 
-1. Place $k$ centre points among the rows.
+1. Drop $k$ centre points among the customers.
 2. Assign every row to its nearest centre.
 3. Move each centre to the average of the rows assigned to it.
 4. Repeat 2 and 3 until no row changes group.
 
-The quantity it makes as small as possible is the **inertia**: the total squared distance from each row to its own centre.
+K-Means tries to make one number as small as possible. That number is the **inertia**: add up the squared distance from each customer to its own group centre.
 
 $$\boxed{\text{inertia} = \sum_{i=1}^{n} \lVert x_i - c_{k(i)} \rVert^2}$$
 
-Here $x_i$ is row $i$ (8 scaled numbers), and $c_{k(i)}$ is the centre of the group it was assigned to.
+Here $x_i$ is customer $i$ (8 scaled numbers), and $c_{k(i)}$ is the centre of that customer's group. Small inertia means customers sit close to their group centres.
 
 **Predict before running: What will happen?**
 
@@ -239,15 +239,15 @@ Name: count, dtype: int64
 
 #### <font color='#c2410c'>Code Explanation</font>
 
-- **Line 2** `n_clusters=4` is $k$, which *we* choose. `n_init=10` runs K-Means from 10 different starting centres and keeps the run with the lowest inertia. `random_state=42` makes the run repeatable.
-- **Line 3** `fit_predict` is the same `fit` then `predict` pattern you already know, but `fit` receives only `X_scaled`. There is no `y`.
+- **Line 2** `n_clusters=4` is $k$, which *we* choose. `n_init=10` tries 10 different starting points and keeps the best result (lowest inertia). `random_state=42` gives the same result every time you run it.
+- **Line 3** `fit_predict` is the `fit` then `predict` pattern you already know. The difference: we give it only `X_scaled`. There is no `y`.
 - **Line 4** The group number for the first 10 customers.
 - **Line 5** How many customers landed in each group.
-- **Line 6** The inertia of the best run, in squared scaled units.
+- **Line 6** The inertia of the best run. On its own the number has no units to read; it is useful for comparing runs on the same data.
 
 > <font color='green'>**Result**</font> K-Means split the 140 customers into four groups of 36, 32, 40 and 32, using only their behaviour.
 
-> <font color='#b45309'>**Common mistake**</font> Treating the group *numbers* as meaningful. "Cluster 2" is just a name tag; another library version may number the same group differently. Describe a group by its averages, never by its number.
+> <font color='#b45309'>**Common mistake**</font> Treating the group *numbers* as meaningful. "Cluster 2" is just a name tag. Another version of the library may give the same group a different number. Describe a group by its averages, never by its number.
 
 ### <font color='green'>Extending it: What if we skip scaling?</font>
 
@@ -277,7 +277,7 @@ Name: count, dtype: int64
 #### <font color='#c2410c'>Code Explanation</font>
 
 - **Line 1** K-Means on `X`, the unscaled columns.
-- **Line 2** The group sizes are lopsided.
+- **Line 2** The group sizes are very uneven.
 - **Lines 3–4** Find the smallest group and show who is in it.
 
 > <font color='green'>**Result**</font> Without scaling, order value in rupees decides almost everything. One office bulk order of ₹2,400 gets a group of its own, and real behaviour such as late-night ordering is ignored.
@@ -311,7 +311,7 @@ k=4
 - **Line 1** The same model with $k = 3$.
 - **Line 2** `pd.crosstab` counts how the k = 4 groups (rows) fall into the k = 3 groups (columns).
 
-> <font color='green'>**Result**</font> Groups 1 and 3 from k = 4 merge into one group of 64; the other two groups stay exactly as they were. K-Means always returns exactly the $k$ you ask for, so choosing $k$ is a decision you make, here driven by how many offers the team can run.
+> <font color='green'>**Result**</font> Groups 1 and 3 from k = 4 merge into one group of 64. The other two groups stay exactly as they were. K-Means always returns exactly the $k$ groups you ask for, so choosing $k$ is your decision. Here it comes from how many offers the team can run.
 
 ### <font color='purple'>Quiz 2</font>
 
@@ -320,15 +320,15 @@ k=4
 **Options:**
 - A) K-Means needs a label column and is guessing without one
 - B) `n_init=10` is too small, so the run never finished
-- C) `avg_order_value` is in rupees and has a much larger spread than the other columns, so one extreme order dominates the distances
+- C) `avg_order_value` is in rupees and has a much larger spread than the other columns, so one extreme order decides the distances
 - D) k = 4 is too many clusters for 140 rows
 
 **Correct Answer:** C
 
 **Explanation:**
 - **A)** Wrong: K-Means never uses labels; that is what makes it unsupervised.
-- **B)** Wrong: `n_init` is how many restarts to try, and each restart runs until no row changes group.
-- **C)** Correct: distance is dominated by the column with the biggest numbers, so the ₹2,400 order sits far from everyone.
+- **B)** Wrong: `n_init` is how many starting points to try; each try runs until no customer changes group.
+- **C)** Correct: the column with the biggest numbers controls the distance, so the ₹2,400 order sits far from everyone.
 - **D)** Wrong: the same k = 4 on scaled data gave four sensible groups of 32 to 40 customers.
 
 ---
@@ -343,7 +343,7 @@ k=4
 
 **Predict before running: What will happen?**
 
-> <font color="red">**🎯 Instructor Note**</font> Expected: a table of 8 rows (columns) by 4 groups (clusters). It is the same `groupby().mean()` from the data exploration session.
+> <font color="red">**🎯 Instructor Note**</font> Expected: one row per behaviour column and one column per group. It is the same `groupby().mean()` from the data exploration session.
 
 ```python
 df["cluster"] = labels
@@ -368,12 +368,12 @@ app_opens_per_week      25.0    2.0   17.0    6.0
 #### <font color='#c2410c'>Code Explanation</font>
 
 - **Line 1** Store each customer's group number as a new column.
-- **Line 2** Average every behaviour column inside each group, on the **original** units so the numbers are readable.
+- **Line 2** Average every behaviour column inside each group. We use the **original** numbers (not the scaled ones) so they are easy to read.
 - **Line 3** `.T` puts groups across the top so each group reads as one column.
 
 #### <font color='#c2410c'>Logic Explanation</font>
 
-Read each column of the table and describe it in plain words. These names are ours; K-Means never produces names.
+Read each group's column in the table and describe it in plain words. We choose these names; K-Means only gives numbers.
 
 | Cluster | What stands out | Our plain-language name |
 |:-:|:--|:--|
@@ -448,7 +448,10 @@ print(pairs[:3])
 
 #### <font color='#c2410c'>Logic Explanation</font>
 
-Each customer is really a point in 8 dimensions, one per column, and a screen can show only 2. With many features, data is hard to **see** (the number of pair charts grows fast: 20 columns give 190 pairs) and hard to **work with** (distances mix many columns, and several columns often repeat the same information: customers who order often also open the app often and try more cuisines).
+Each customer has 8 numbers, so drawing one customer properly would need 8 axes. A screen has only 2. With many features, data is:
+
+- **Hard to see:** the number of pair charts grows fast. 8 columns give 28 pairs; 20 columns give 190.
+- **Hard to work with:** many columns often repeat the same information. Customers who order often also open the app often and try more cuisines, so three columns are telling one story.
 
 ### <font color='purple'>Quiz 3</font>
 
@@ -478,9 +481,17 @@ Each customer is really a point in 8 dimensions, one per column, and a screen ca
 
 > <font color='purple'>**How much of the customers' spread can two new columns keep?**</font>
 
-**Principal Component Analysis (PCA)** builds new columns, called **principal components**, each a weighted mix of the original (scaled) columns. PC1 points in the direction where the customers are most spread out; PC2 takes the most remaining spread, at a right angle to PC1; and so on. PCA does not pick 2 of the 8 columns; it blends all 8. Because columns that move together (orders, app opens, cuisines) carry repeated information, a few components can hold most of it.
+**Principal Component Analysis (PCA)** builds new columns called **principal components**. Each one is a mix of all 8 scaled columns, with a weight for each.
+
+- **PC1** is the direction in which customers differ the most.
+- **PC2** is the direction in which they differ the most after that, using only information PC1 has not already captured.
+- PCA does **not** pick 2 of the 8 columns. It blends all 8.
+
+Columns that move together (orders, app opens, cuisines) repeat the same information, so a few components can hold most of it.
 
 $$\boxed{\text{explained variance ratio of PC}_j = \frac{\text{variance along PC}_j}{\text{total variance of all columns}}}$$
+
+In plain words: the share of all the differences between customers that one component carries.
 
 **Predict before running: What will happen?**
 
@@ -511,13 +522,13 @@ print(round(pca.explained_variance_ratio_.sum(), 3))
 - **Line 5** PC1 keeps 47.6% of the total variance and PC2 keeps 29.4%.
 - **Line 6** Together they keep 77.0%.
 
-> <font color='green'>**Result**</font> Two columns instead of eight, and 77% of the variation between customers is kept. The other 23% is spread over the remaining six components.
+> <font color='green'>**Result**</font> Two columns instead of eight, and 77% of the differences between customers are kept. The other 23% is in the six components we dropped.
 
 ### <font color='green'>Extending it: Plot the reduced data</font>
 
 > <font color='purple'>**On the two PCA columns, do the four K-Means groups separate?**</font>
 
-> <font color="red">**🎯 Instructor Note**</font> Remind learners that PCA never saw the cluster labels; we only use them for colour. Ask: "Will groups 1 and 3 still sit close?"
+> <font color="red">**🎯 Instructor Note**</font> Remind learners that PCA never saw the group labels; we use them only to colour the dots. Ask: "Will groups 1 and 3 still sit close?"
 
 ```python
 plt.figure(figsize=(8, 5))
@@ -537,7 +548,7 @@ plt.show()
 
 #### <font color='#c2410c'>Code Explanation</font>
 
-- **Line 3** `X_2d` is a NumPy array, so we select rows of one group with a boolean mask, as you did in the NumPy session.
+- **Line 3** `X_2d` is a NumPy array, so we keep one group's rows with a True/False filter (boolean indexing), as you did in the NumPy session.
 - **Line 4** Column 0 is PC1, column 1 is PC2.
 - **Lines 5–9** Labels, legend, title.
 
@@ -547,7 +558,7 @@ plt.show()
 
 > <font color='purple'>**PC1 and PC2 are mixes of the 8 columns. Which columns does each one mostly carry?**</font>
 
-> <font color="red">**🎯 Instructor Note**</font> Read the biggest numbers (positive or negative) in each column out loud. The signs could flip on another version; the pattern stays.
+> <font color="red">**🎯 Instructor Note**</font> Read out the biggest numbers (positive or negative) in each column. Another version may flip every + and − sign; the meaning stays the same.
 
 ```python
 loadings = pd.DataFrame(pca.components_.T, index=X.columns, columns=["PC1", "PC2"])
@@ -570,7 +581,7 @@ app_opens_per_week     0.46  0.17
 
 #### <font color='#c2410c'>Code Explanation</font>
 
-- **Line 1** `components_` holds the weight of each original column in each component; `.T` turns it so columns become rows.
+- **Line 1** `components_` holds how much each original column counts in each component. `.T` turns the table so each original column becomes a row.
 - **Line 2** Print the weights, rounded.
 
 #### <font color='#c2410c'>Logic Explanation</font>
@@ -578,7 +589,7 @@ app_opens_per_week     0.46  0.17
 - **PC1** has large positive weights on orders per month, cuisines tried and app opens, and negative weights on days since last order and discount use. High PC1 means **"very active customer"**; low PC1 means **"drifting away"**.
 - **PC2** has large positive weights on late-night % and discount use, and negative weights on average order value and months on the app. High PC2 means **"new, late-night deal-seeker"**; low PC2 means **"long-time, big-basket customer"**.
 
-> <font color='green'>**Result**</font> The information PCA preserved is *how active* a customer is and *what style* of ordering they have. That is why the four groups separate on the chart.
+> <font color='green'>**Result**</font> PCA kept two stories about each customer: *how active* they are and *what style* of ordering they have. That is why the four groups separate on the chart.
 
 ### <font color='green'>Extending it: Two or three components?</font>
 
@@ -606,7 +617,7 @@ print(round(pca3.explained_variance_ratio_.sum(), 3))
 
 <p align="center"><img src="images/06_variance_kept.png" alt="Bar chart of explained variance ratio for the 8 principal components: 47.6%, 29.4%, 12.6%, then small bars below 4%; the first two bars are highlighted as kept for the 2D chart" width="900"></p>
 
-> <font color='green'>**Result**</font> Three components keep 89.6% of the information, against 77.0% for two. Two are enough for a flat chart; three keep more detail but need a 3D view.
+> <font color='green'>**Result**</font> Three components keep 89.6% of the information, compared with 77.0% for two. Two are enough for a flat chart. Three keep more detail but need a 3D chart.
 
 > <font color='#b45309'>**Common mistake**</font> Running PCA on unscaled columns. On this data PC1 would then keep 98.2% of the variance with a weight of 0.999 on `avg_order_value`, because it has the largest spread in rupees. Scale first, exactly as for K-Means.
 
@@ -625,7 +636,7 @@ print(round(pca3.explained_variance_ratio_.sum(), 3))
 **Explanation:**
 - **A)** Wrong: each component is a weighted mix of all 8 columns; no column is simply chosen or dropped.
 - **B)** Wrong: all 140 customers are still there; the shape went from (140, 8) to (140, 2).
-- **C)** Wrong: there are no labels, so there is no accuracy; the ratio measures kept variance.
+- **C)** Wrong: there are no labels, so there is no accuracy; the ratio measures how much variation is kept.
 - **D)** Correct: 0.476 + 0.294 = 0.770, the share of total variance carried by PC1 and PC2.
 
 ---
@@ -679,15 +690,15 @@ PCA turned 8 columns into 2 that keep 77.0% of the variation, and the four group
 | Lapsed users given an offer aimed at them | 0 | 32 |
 | Charts needed to see the customers | 28 pair charts, each a slice | 1 PCA chart keeping 77.0% |
 
-> <font color='green'>**Therefore,**</font> without any labels, scaling plus K-Means finds four customer groups the team can target separately, and PCA shows them on one chart. The trade-off is that we chose $k = 4$ ourselves, the group names are our interpretation, and the 2D chart leaves out 23% of the variation.
+> <font color='green'>**Therefore,**</font> without any labels, scaling plus K-Means finds four customer groups the team can target separately, and PCA shows them on one chart. The catch: we chose $k = 4$ ourselves, we gave the groups their names, and the 2D chart leaves out 23% of the variation.
 
-> <font color="red">**🎯 Instructor Note**</font> Reveal the poll now: the data holds 4 groups. Point out that K-Means returns whatever $k$ we ask for; the profile table is what convinced us 4 makes sense.
+> <font color="red">**🎯 Instructor Note**</font> Reveal the poll now: the data holds 4 groups. K-Means returns whatever $k$ we ask for; the profile table is what showed that 4 makes sense.
 
 ### <font color='green'>Summary</font>
 
 | Learning objective | Takeaway |
 |:--|:--|
-| What unsupervised learning is | It finds structure in features alone, which is useful because most real data has no labels. |
+| What unsupervised learning is | It finds patterns using only the features, with no answer column. Useful because most real data has no labels. |
 | Apply K-Means | Scale first, then `KMeans(n_clusters=k, n_init=10, random_state=42).fit_predict(X_scaled)`; no `y`. |
 | Visualise and describe clusters | Plot with one colour per group and read `groupby("cluster").mean()` to name each group in plain words. |
 | Why many features are hard | 8 columns give 28 pair charts, each showing only a slice; groups can overlap on one pair and separate on another. |

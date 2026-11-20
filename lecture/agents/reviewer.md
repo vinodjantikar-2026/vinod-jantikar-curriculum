@@ -53,7 +53,7 @@ Score each Pass, Fixed or Fail.
 | 5 | Code and output | Re-run every block in a fresh environment (Python, or MySQL for SQL). Output matches exactly. 10 lines or fewer. Explanation lines match the code. SQL uses MySQL syntax, a fixed "today", `ORDER BY` with a tie-breaker. |
 | 6 | Quizzes | Exactly 4, one per topic, on the topic's main LO. Recompute each answer. Every option has a one-line reason. The correct letter varies. Distractors are plausible mistakes. |
 | 7 | Terms and wording | No banned term from `terms.md`. Mentor wording. Only the target emoji. Instructor Notes 1 to 2 lines. Plain words. No forward references. No repeated explanations. |
-| 8 | Visuals and data | Every image exists, shows the numbers the code produced, has alt text and `width="900"`. Dataset 100 to 150 rows with edge cases. SQL has `data/<name>.sql`. |
+| 8 | Visuals and data | Mermaid nodes use the template's dark fills with `color:#ffffff` (white text). Every image exists, shows the numbers the code produced, has alt text and `width="900"`. Dataset 100 to 150 rows with edge cases. SQL has `data/<name>.sql`. |
 | 9 | Curriculum relevance | Bridges mention only completed sessions or topics from `curriculum_context`. No "Builds on" label. Nothing assumed that the batch has not learned. |
 | 10 | Pedagogy and flow | Topic opens from the previous result; the same data throughout; predict-before-run is used; Closing answers the Problem Statement, reveals the poll and teaches nothing new; Scenario layout is not copied from the examples. |
 
