@@ -1,0 +1,121 @@
+customer_id,plan_type,circle,monthly_bill,data_used_gb,call_drops_per_week,complaints_last_3m,tenure_months,left
+A001,Prepaid,Tamil Nadu,259,59.9,5,2,45.0,0
+A002,Postpaid,Delhi,1439,26.6,8,0,14.0,0
+A003,Prepaid,Tamil Nadu,259,,3,1,23.0,0
+A004,Prepaid,Tamil Nadu,229,18.3,4,0,3.0,1
+A005,Prepaid,Tamil Nadu,589,13.0,11,0,92.0,0
+A006,Postpaid,Mumbai,459,6.3,3,0,88.0,0
+A007,Postpaid,Mumbai,499,17.0,2,0,15.0,0
+A008,Prepaid,Mumbai,379,14.9,4,1,11.0,0
+A009,Prepaid,Mumbai,479,33.1,2,1,,0
+A010,Postpaid,Karnataka,919,9.1,12,2,13.0,1
+A011,Postpaid,Delhi,729,11.7,5,1,82.0,0
+A012,Prepaid,Delhi,289,21.9,5,1,,1
+A013,Prepaid,Tamil Nadu,409,19.9,7,2,88.0,0
+A014,Prepaid,Delhi,599,5.8,7,0,81.0,0
+A015,Postpaid,Delhi,449,9.1,3,0,20.0,0
+A016,Prepaid,Mumbai,469,8.4,9,0,48.0,1
+A017,Prepaid,Karnataka,289,13.5,2,1,25.0,0
+A018,Postpaid,Delhi,2999,22.6,1,2,89.0,0
+A019,Prepaid,Mumbai,499,13.0,3,2,28.0,0
+A020,Postpaid,Karnataka,1029,13.3,3,0,39.0,0
+A021,Prepaid,Karnataka,339,20.0,1,1,32.0,0
+A022,Prepaid,Tamil Nadu,519,38.6,8,1,83.0,0
+A023,Postpaid,Mumbai,1179,19.9,8,0,88.0,0
+A024,Prepaid,Mumbai,239,,3,1,37.0,0
+A025,Postpaid,Delhi,559,8.1,2,2,39.0,0
+A026,Prepaid,Mumbai,459,18.2,1,0,14.0,0
+A027,Prepaid,Mumbai,329,5.8,4,4,46.0,0
+A028,Postpaid,Mumbai,529,13.2,2,0,83.0,0
+A029,Prepaid,Delhi,579,,4,1,15.0,1
+A030,Prepaid,Delhi,299,13.6,2,0,7.0,0
+A031,Prepaid,Mumbai,379,27.3,10,0,61.0,0
+A032,Prepaid,Mumbai,429,7.7,11,0,33.0,0
+A033,Prepaid,Mumbai,519,10.0,5,3,96.0,0
+A034,Postpaid,Delhi,1159,15.2,8,2,56.0,0
+A035,Prepaid,Delhi,529,8.6,3,3,63.0,0
+A036,Prepaid,Karnataka,589,11.9,3,1,,1
+A037,Prepaid,Karnataka,379,18.6,9,2,55.0,1
+A038,Postpaid,Tamil Nadu,619,24.9,10,0,69.0,0
+A039,Postpaid,Delhi,1039,25.0,9,1,12.0,0
+A040,Prepaid,Mumbai,339,11.6,3,0,79.0,0
+A041,Prepaid,Karnataka,269,14.6,2,0,17.0,1
+A042,Postpaid,Tamil Nadu,1409,11.0,1,4,75.0,0
+A043,Prepaid,Mumbai,429,,8,2,82.0,1
+A044,Prepaid,Karnataka,329,12.3,5,1,23.0,0
+A045,Prepaid,Mumbai,549,,3,0,31.0,0
+A046,Prepaid,Delhi,439,41.2,7,4,49.0,1
+A047,Prepaid,Delhi,419,12.2,3,0,6.0,0
+A048,Prepaid,Mumbai,399,9.5,8,4,51.0,1
+A049,Prepaid,Mumbai,539,5.1,10,2,90.0,0
+A050,Postpaid,Karnataka,1329,,13,0,68.0,0
+A051,Prepaid,Karnataka,479,16.1,2,3,69.0,0
+A052,Postpaid,Karnataka,809,15.5,1,0,46.0,1
+A053,Prepaid,Tamil Nadu,409,6.4,7,1,32.0,0
+A054,Prepaid,Delhi,469,12.4,1,4,75.0,0
+A055,Prepaid,Karnataka,559,5.4,4,0,53.0,0
+A056,Prepaid,Mumbai,299,31.7,3,1,55.0,0
+A057,Prepaid,Mumbai,359,6.6,3,0,76.0,0
+A058,Prepaid,Karnataka,379,22.5,3,1,45.0,0
+A059,Prepaid,Mumbai,569,10.6,11,2,38.0,1
+A060,Prepaid,Mumbai,589,7.2,3,2,11.0,0
+A061,Prepaid,Mumbai,419,15.9,4,1,8.0,1
+A062,Prepaid,Delhi,429,8.0,10,1,34.0,0
+A063,Postpaid,Mumbai,1009,16.5,3,0,1.0,0
+A064,Prepaid,Tamil Nadu,379,24.5,8,0,66.0,0
+A065,Prepaid,Delhi,449,23.4,0,4,,0
+A066,Prepaid,Delhi,379,13.6,5,0,12.0,0
+A067,Prepaid,Tamil Nadu,529,34.5,5,0,30.0,0
+A068,Prepaid,Karnataka,519,46.9,3,2,47.0,1
+A069,Prepaid,Tamil Nadu,569,12.0,5,1,63.0,0
+A070,Prepaid,Delhi,269,11.9,5,2,6.0,1
+A071,Postpaid,Tamil Nadu,869,31.7,8,0,79.0,0
+A072,Prepaid,Tamil Nadu,489,19.6,3,1,9.0,1
+A073,Postpaid,Karnataka,1239,23.2,3,0,89.0,0
+A074,Prepaid,Tamil Nadu,339,25.6,2,0,28.0,0
+A075,Postpaid,Karnataka,1439,16.7,11,2,53.0,0
+A076,Prepaid,Mumbai,559,12.1,10,3,38.0,1
+A077,Prepaid,Tamil Nadu,479,11.0,2,1,95.0,0
+A078,Postpaid,Tamil Nadu,779,17.5,5,0,13.0,1
+A079,Postpaid,Karnataka,909,34.5,10,3,88.0,1
+A080,Prepaid,Delhi,309,5.1,4,3,43.0,0
+A081,Postpaid,Delhi,1209,9.7,13,1,44.0,1
+A082,Prepaid,Delhi,349,30.1,3,1,18.0,1
+A083,Prepaid,Mumbai,449,23.0,5,1,78.0,0
+A084,Prepaid,Mumbai,419,13.0,2,2,51.0,0
+A085,Prepaid,Tamil Nadu,269,9.6,8,1,24.0,1
+A086,Prepaid,Karnataka,259,,8,0,46.0,0
+A087,Prepaid,Mumbai,489,25.7,6,0,36.0,1
+A088,Prepaid,Delhi,409,23.0,2,0,60.0,1
+A089,Postpaid,Delhi,1199,20.9,4,4,51.0,0
+A090,Postpaid,Karnataka,1009,35.2,2,1,85.0,0
+A091,Postpaid,Mumbai,1399,12.4,4,0,75.0,0
+A092,Prepaid,Karnataka,599,5.2,3,1,65.0,0
+A093,Postpaid,Mumbai,1129,6.1,3,0,12.0,0
+A094,Prepaid,Karnataka,399,13.6,4,0,1.0,1
+A095,Prepaid,Mumbai,589,22.0,3,0,89.0,0
+A096,Prepaid,Delhi,549,9.4,10,1,88.0,0
+A097,Postpaid,Mumbai,1359,55.6,1,1,34.0,0
+A098,Postpaid,Karnataka,1119,35.8,7,0,35.0,0
+A099,Postpaid,Mumbai,1359,15.9,2,0,43.0,0
+A100,Postpaid,Mumbai,1119,17.0,2,1,68.0,0
+A101,Prepaid,Mumbai,339,,5,0,50.0,0
+A102,Prepaid,Tamil Nadu,539,28.9,7,3,43.0,1
+A103,Postpaid,Delhi,1349,19.9,3,4,33.0,1
+A104,Prepaid,Mumbai,579,7.7,2,0,88.0,0
+A105,Prepaid,Karnataka,369,24.6,1,0,61.0,0
+A106,Postpaid,Delhi,999,6.7,4,2,9.0,1
+A107,Prepaid,Delhi,299,5.2,3,0,59.0,0
+A108,Prepaid,Tamil Nadu,209,5.9,8,0,82.0,0
+A109,Prepaid,Karnataka,199,4.0,11,1,55.0,1
+A110,Prepaid,Mumbai,399,26.4,9,2,46.0,1
+A111,Prepaid,Mumbai,459,17.1,4,0,,1
+A112,Prepaid,Tamil Nadu,349,13.2,3,0,70.0,0
+A113,Postpaid,Delhi,949,25.5,8,4,86.0,1
+A114,Postpaid,Tamil Nadu,1039,18.3,0,4,74.0,0
+A115,Prepaid,Mumbai,319,23.5,2,1,70.0,0
+A116,Prepaid,Mumbai,399,10.8,2,0,54.0,0
+A117,Postpaid,Mumbai,1119,10.0,5,2,28.0,0
+A118,Prepaid,Mumbai,239,20.8,2,2,79.0,0
+A119,Postpaid,Mumbai,469,13.9,3,0,44.0,0
+A120,Postpaid,Karnataka,1159,13.1,2,2,96.0,0

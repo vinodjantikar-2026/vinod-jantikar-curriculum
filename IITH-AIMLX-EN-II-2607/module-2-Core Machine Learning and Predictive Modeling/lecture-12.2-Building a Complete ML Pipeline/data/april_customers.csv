@@ -1,0 +1,31 @@
+customer_id,plan_type,circle,monthly_bill,data_used_gb,call_drops_per_week,complaints_last_3m,tenure_months,left
+A501,Postpaid,Punjab,899,8.4,1,4,2.0,0
+A502,Prepaid,Karnataka,239,20.7,1,1,34.0,1
+A503,Prepaid,Karnataka,279,,9,0,20.0,0
+A504,Prepaid,Mumbai,449,16.5,4,0,58.0,0
+A505,Postpaid,Tamil Nadu,599,15.1,5,0,46.0,0
+A506,Prepaid,Karnataka,249,9.7,2,4,47.0,0
+A507,Prepaid,Karnataka,209,,9,1,80.0,0
+A508,Prepaid,Karnataka,449,10.8,2,0,93.0,0
+A509,Prepaid,Karnataka,279,45.3,3,1,80.0,0
+A510,Postpaid,Delhi,979,31.6,4,3,79.0,0
+A511,Prepaid,Karnataka,509,7.9,3,1,77.0,0
+A512,Prepaid,Karnataka,249,35.8,5,1,29.0,1
+A513,Prepaid,Karnataka,559,8.6,4,1,10.0,1
+A514,Prepaid,Delhi,429,8.1,8,0,72.0,0
+A515,Prepaid,Punjab,459,18.1,7,0,19.0,0
+A516,Prepaid,Tamil Nadu,449,7.4,9,2,9.0,1
+A517,Prepaid,Tamil Nadu,529,17.8,3,0,74.0,0
+A518,Prepaid,Mumbai,229,24.3,4,1,87.0,0
+A519,Prepaid,Tamil Nadu,409,9.1,3,2,86.0,0
+A520,Postpaid,Delhi,649,14.7,1,1,81.0,0
+A521,Prepaid,Mumbai,549,6.5,10,3,16.0,1
+A522,Prepaid,Delhi,259,17.8,9,0,,0
+A523,Prepaid,Mumbai,469,25.9,4,1,2.0,1
+A524,Prepaid,Mumbai,249,15.1,8,1,47.0,0
+A525,Postpaid,Tamil Nadu,599,14.2,3,0,26.0,0
+A526,Prepaid,Mumbai,559,8.5,3,1,44.0,0
+A527,Prepaid,Karnataka,399,20.2,11,2,62.0,1
+A528,Prepaid,Delhi,429,45.2,5,1,20.0,1
+A529,Postpaid,Karnataka,409,22.5,1,0,21.0,0
+A530,Prepaid,Tamil Nadu,209,8.9,8,0,44.0,1
